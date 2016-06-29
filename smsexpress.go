@@ -5,25 +5,25 @@ import (
 	"net/http"
 )
 
-var providersList = []Provider{}
+var providers = []Provider{}
 
 // Register adds a provider
 func Register(p Provider) {
-	providersList = append(providersList, p)
+	providers = append(providers, p)
 }
 
 // Send SMS messages via registered providers.
 // Executes in order of registration.
 // Returns on first successful send.
 func Send(client *http.Client, from, to, message string) (bool, error) {
-	if len(providersList) == 0 {
+	if len(providers) == 0 {
 		panic(errors.New("smsexpress: No provider. Register provider(s)"))
 	}
 	if client == nil {
 		client = http.DefaultClient
 	}
 	errs := Errors{}
-	for _, p := range providersList {
+	for _, p := range providers {
 		err := p.Send(client, from, to, message)
 		if err != nil {
 			errs = append(errs, err)
