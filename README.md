@@ -11,7 +11,8 @@ View [docs](https://godoc.org/github.com/samora/smsexpress)
 
 ## Supported providers (Ghana)
 
-* SMSGH
+* [SMSGH](http://www.smsgh.com)
+* [Nasara Mobile](http://www.nasaramobile.com)
 * ... contributions?
 
 

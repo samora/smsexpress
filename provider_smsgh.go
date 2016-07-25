@@ -24,10 +24,10 @@ func (s Smsgh) Send(client *http.Client, from, to, message string) error {
 	if err != nil {
 		return err
 	}
+	defer response.Body.Close()
 	if response.StatusCode >= 200 && response.StatusCode < 300 {
 		return nil
 	}
-	defer response.Body.Close()
 	contents, err := ioutil.ReadAll(response.Body)
 	if err != nil {
 		return err
