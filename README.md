@@ -2,7 +2,7 @@
 
 [Go](https://golang.org) package to quickly send messages via various SMS providers.
 
-View [docs](https://godoc.org/github.com/samora/smsexpress)
+[![Go Reference](https://pkg.go.dev/badge/github.com/samora/smsexpress.svg)](https://pkg.go.dev/github.com/samora/smsexpress)
 
 ## Features
 
