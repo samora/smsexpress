@@ -7,20 +7,20 @@ import (
 	"net/url"
 )
 
-// Smsgh provider implements smsexpress.Provider interface
-type Smsgh struct {
+// Hubtel provider implements smsexpress.Provider interface
+type Hubtel struct {
 	ID, Secret string
 }
 
 // Send SMS
-func (s Smsgh) Send(client *http.Client, from, to, message string) error {
+func (h Hubtel) Send(client *http.Client, from, to, message string) error {
 	v := make(url.Values)
 	v.Set("From", from)
 	v.Set("To", to)
 	v.Set("Content", message)
-	v.Set("ClientId", s.ID)
-	v.Set("ClientSecret", s.Secret)
-	response, err := client.Get("https://api.smsgh.com/v3/messages/send?" + v.Encode())
+	v.Set("ClientId", h.ID)
+	v.Set("ClientSecret", h.Secret)
+	response, err := client.Get("https://api.hubtel.com/v1/messages/send?" + v.Encode())
 	if err != nil {
 		return err
 	}
@@ -32,5 +32,5 @@ func (s Smsgh) Send(client *http.Client, from, to, message string) error {
 	if err != nil {
 		return err
 	}
-	return fmt.Errorf("smsexpress: Smsgh failed with HTTP status %s\n%s", response.Status, string(contents))
+	return fmt.Errorf("smsexpress: Hubtel failed with HTTP status %s\n%s", response.Status, string(contents))
 }

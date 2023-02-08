@@ -2,7 +2,7 @@ package smsexpress
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 )
@@ -26,7 +26,7 @@ func (n NasaraMobile) Send(client *http.Client, from, to, message string) error 
 	if response.StatusCode >= 200 && response.StatusCode < 300 {
 		return nil
 	}
-	contents, err := ioutil.ReadAll(response.Body)
+	contents, err := io.ReadAll(response.Body)
 	if err != nil {
 		return err
 	}

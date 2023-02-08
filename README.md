@@ -11,7 +11,8 @@
 
 ## Supported providers (Ghana)
 
-* [SMSGH](http://www.smsgh.com)
+* [SMSGH](http://www.smsgh.com) Deprecated. Use Hubtel below.
+* [Hubtel](http://www.hubtel.com)
 * [Nasara Mobile](http://www.nasaramobile.com)
 * ... contributions?
 
